@@ -1,0 +1,16 @@
+{
+  "name": "vvhackbootcamp",
+  "version": "1.0.0",
+  "description": "for vedic vision bootcamp purpose",
+  "main": "sample.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon javascript/loops.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
