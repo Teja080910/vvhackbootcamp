@@ -1,0 +1,57 @@
+
+check dbs
+    show dbs
+
+check current db
+    db
+
+switch and create db
+    use dbname
+
+create collection 
+    db.createCollection("collection_name")
+    db.collection_name.insertOne()
+
+drop db 
+    db.dropDatabase()
+    
+drop collection
+    db.collection_name.drop()
+
+insert docouments
+    db.collection_name.insertOne()
+    db.collection_name.insertMany()
+
+update docouments
+    db.collection_name.updateOne()
+    db.collection_name.updateMany()
+
+find  docouments
+    db.collection_name.findOne()
+    db.collection_name.find()
+
+delete docouments
+    db.collection_name.deleteOne()
+    db.collection_name.deleteMany()
+
+operators used in mongodb
+    $eq -> equal 
+    $ne -> noequal
+    $gt -> greaterthan
+    $lt -> lessthan
+    $gte -> greaterthan or equalto
+    $lte -> lessthan or equalto
+    $in -> exist elements in array
+    $exist -> exist elements
+    $type -> datatype
+    $and:[{field:{$lt:}},{field:{gt:}}]
+    $or:[{field:{$lt:}},{field:{gt:}}]
+
+
+[
+{ _id: 1, Name: "teja", Age: 19, Salary: 3000 },
+{ _id: 2, Name: "siva", Salary: 3200 },
+{ _id: 3, Name: "vishnu", Age :20, Salary: 3500 },
+{ _id: 4, Name: "elephant", Age :22, Salary: 3300 },
+{ _id: 5, Name: "sun", Salary: 3100 }
+]
