@@ -1,0 +1,19 @@
+npm i or npm install
+
+npm init
+
+node --v
+
+npm -v
+
+
+npm i nodemon
+
+
+------------>Backend
+                --->src
+                    --->db
+                    --->server
+                --->package.json
+                --->package-lock.json
+                --->Node Modules
