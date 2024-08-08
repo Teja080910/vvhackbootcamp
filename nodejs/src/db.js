@@ -5,7 +5,7 @@ async function connectToDB(cb) {
     const url = "mongodb://localhost:27017"
     const client = new MongoClient(url);
     await client.connect();
-    db = client.db("AST_Database");
+    db = client.db("vvhack");
     cb();
 }
 
