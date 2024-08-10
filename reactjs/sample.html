@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React JS</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const Sample = () => {
+            return (
+                <>
+                    <h1>Hi darlings...</h1>
+                    <h2>My name is Teja</h2>
+                    <h3>I am from CSE</h3>
+                    <h4>SRKR Engineering College</h4>
+                </>
+            );
+        };
+
+        const Sample1 = () => {
+            return (
+                <>
+                    <h1>Hi darlings...</h1>
+                    <h2>My name is Teja</h2>
+                </>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Sample1 />);
+    </script>
+    
+</body>
+<script src="sample.jsx"></script>
+
+</html>

@@ -91,6 +91,18 @@ app.post('/detemany', async(req, res) => {
     .catch((e)=>console.log(e))
 })
 
+app.post('/signin', async(req, res) => {
+    await db.collection("ast").findOne({Name:req.body.name})
+    .then((result)=>{
+        if(result?.Password===req.body.password){
+            res.json({message:"login sucess", values:result})
+        } else {
+            res.json({error:"user not found"})
+        }
+    })
+    .catch((e)=>console.log(e))
+})
+
 
 connectToDB(() => {
     app.listen(9000, () => {
