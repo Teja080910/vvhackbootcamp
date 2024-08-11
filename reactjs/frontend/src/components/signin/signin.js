@@ -7,25 +7,31 @@ import {
     Input, 
     Button, 
     VStack, 
-    Box 
+    Box, 
+    Text
 } from "@chakra-ui/react";
 import axios from 'axios'
 import { api } from "../actions/api";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
     const [name,setName]=useState()
     const [password,setPassword]=useState()
+    const nav=useNavigate()
 
     const Signin=async()=>{
         await axios.post(api+"/signin",{name,password})
         .then((res)=>{
+            console.log(res?.data)
             if(res.data.message){
                 console.log(res?.data?.values)
                 alert(res.data.message)
+                nav('/home')
             } else {
                 alert(res.data.error)
-                window.location.href="/signup"
+                // window.location.href="/signup"
+                nav('/signup')
             }
         })
         .catch((e)=>console.log(e))
@@ -60,6 +66,13 @@ export const SignIn = () => {
                         </FormControl>
 
                         <Button colorScheme="teal" size="lg" mt={4} onClick={Signin}>Sign In</Button>
+                        <Text>
+                            Don't have an account ? <Link to={"/signup"}>
+                        <Button colorScheme="purple">
+                        sign up
+                            </Button>
+                            </Link>
+                        </Text>
                     </VStack>
                 </CardBody>
             </Card>

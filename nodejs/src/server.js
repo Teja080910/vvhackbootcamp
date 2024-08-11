@@ -92,8 +92,10 @@ app.post('/detemany', async(req, res) => {
 })
 
 app.post('/signin', async(req, res) => {
+    console.log(req.body)
     await db.collection("ast").findOne({Name:req.body.name})
     .then((result)=>{
+        console.log(result)
         if(result?.Password===req.body.password){
             res.json({message:"login sucess", values:result})
         } else {
@@ -103,6 +105,28 @@ app.post('/signin', async(req, res) => {
     .catch((e)=>console.log(e))
 })
 
+
+app.post('/signup', async(req, res) => {
+    console.log(req.body)
+    await db.collection("ast").insertOne({Gmail:req.body.gmail,Password:req.body.password,Phone:req.body.phone,Registerno:req.body.register})
+    .then((result)=>{
+        console.log(result)
+        if(result){
+            res.json({message:"Signup sucess", values:result})
+        } else {
+            res.json({error:"Failed"})
+        }
+    })
+    .catch((e)=>console.log(e))
+})
+
+app.post('/students', async(req, res) => {
+    await db.collection("ast").find().toArray()
+    .then((result)=>{
+        res.send(result)
+    })
+    .catch((e)=>console.log(e))
+})
 
 connectToDB(() => {
     app.listen(9000, () => {

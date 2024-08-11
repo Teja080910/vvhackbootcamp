@@ -2,20 +2,37 @@ import {
     Box, Button, Card, CardBody, FormControl,
     FormHelperText,
     FormLabel,
-    Input, VStack
+    Input, Text, VStack
 } from "@chakra-ui/react";
+import { api } from "../actions/api";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const SignUp = () => {
-
+    const nav=useNavigate();
     const [gmail, setGmail] = useState()
     const [password, setPassword] = useState()
     const [phone, setPhone] = useState()
     const [register, setRegister] = useState()
 
     const Signup = async () => {
-
+        await axios.post(api+"/signup",{gmail,password,phone,register})
+        .then((res)=>{
+            console.log(res?.data)
+            if(res.data.message){
+                console.log(res?.data?.values)
+                alert(res.data.message)
+                nav('/signin')
+            } else {
+                alert(res.data.error)
+                // window.location.href="/signup"
+                nav('/signup')
+            }
+        })
+        .catch((e)=>console.log(e))
     }
+    
 
     return (
         <Box
@@ -57,6 +74,13 @@ export const SignUp = () => {
                         </FormControl>
 
                         <Button colorScheme="teal" size="lg" mt={4} onClick={Signup}>Sign Up</Button>
+
+                        <Text>
+                            already have an account ? <Link to={"/signin"}> 
+                            <Button colorScheme="green">sign in
+                                </Button>
+                                 </Link>
+                        </Text>
                     </VStack>
                 </CardBody>
             </Card>

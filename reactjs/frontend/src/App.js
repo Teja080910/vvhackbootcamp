@@ -1,24 +1,31 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Component } from './components/component';
-import { Events } from './components/events/events';
-import { Elephant, Sun } from './components/functions/functions';
 import { SignIn } from './components/signin/signin';
 import { SignUp } from './components/signup/signup';
-import { UseStateFunction } from './components/usesate&useeffect/usestate&useefect';
+import { StudentData } from './components/studentsdata/students';
 
 function App() {
 
 
-  const Sample=()=>{
+  const Sample = () => {
 
   }
   return (
     <>
-    <SignIn/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/students' element={<StudentData />} />
+        </Routes>
+      </BrowserRouter>
 
-    {/* <SignUp/> */}
-    
-    {/* <UseStateFunction/>
+
+      {/* <SignIn /> */}
+
+      {/* <SignUp/> */}
+
+      {/* <UseStateFunction/>
     <h1>Hello world....</h1>
     <h1>Hello darlings...</h1>
     <Component />
