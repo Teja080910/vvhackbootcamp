@@ -93,7 +93,7 @@ app.post('/detemany', async(req, res) => {
 
 app.post('/signin', async(req, res) => {
     console.log(req.body)
-    await db.collection("ast").findOne({Name:req.body.name})
+    await db.collection("ast").findOne({Gmail:req.body.name})
     .then((result)=>{
         console.log(result)
         if(result?.Password===req.body.password){

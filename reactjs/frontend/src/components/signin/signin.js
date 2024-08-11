@@ -23,8 +23,8 @@ export const SignIn = () => {
     const Signin=async()=>{
         await axios.post(api+"/signin",{name,password})
         .then((res)=>{
-            console.log(res?.data)
             if(res.data.message){
+                sessionStorage.auth=JSON.stringify(res?.data?.values)
                 console.log(res?.data?.values)
                 alert(res.data.message)
                 nav('/home')

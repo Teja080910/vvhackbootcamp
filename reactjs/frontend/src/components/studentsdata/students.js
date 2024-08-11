@@ -12,6 +12,7 @@ import {
     TableCaption,
     TableContainer,
 } from '@chakra-ui/react'
+import { Profile } from "../profile/profile"
 
 export const StudentData = () => {
     const [data, setData] = useState([])
@@ -30,6 +31,9 @@ export const StudentData = () => {
 
     return (
         <>
+            <Profile />
+            <br/>
+            <br/>
             <TableContainer>
                 <Table variant='striped' colorScheme='teal'>
                     <TableCaption>Bootcamp students data</TableCaption>

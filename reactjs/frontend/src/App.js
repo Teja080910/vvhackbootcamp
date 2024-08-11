@@ -6,17 +6,17 @@ import { StudentData } from './components/studentsdata/students';
 
 function App() {
 
+  // console.log(JSON.parse(sessionStorage?.auth))
 
-  const Sample = () => {
+  const verify=sessionStorage?.auth && JSON.parse(sessionStorage?.auth)?.Gmail
 
-  }
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/students' element={<StudentData />} />
+          <Route path='/students' element={verify?<StudentData />:<SignIn/>} />
         </Routes>
       </BrowserRouter>
 
